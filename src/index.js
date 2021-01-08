@@ -12,7 +12,7 @@ function BookList() {
   return (
     <section className="booklist">
       <Book job="developer" />
-      <Book number={77639} price="€56.00" />
+      <Book job="banker" number={77639} price="€56.00" />
       {/* And an empty one below... */}
       <Book />
     </section>
@@ -26,7 +26,10 @@ const Book = (props) => {
     <article className="book">
       <img src={img} alt="Rory McIlroy - The Champion Golfer" />
       <h2>{title}</h2>
-      <h4>by {author}</h4>
+      <h4>
+        {/* Example of using the value of props as defined above in KVP  */}
+        by {author} ({props.job})
+      </h4>
     </article>
   );
 };
