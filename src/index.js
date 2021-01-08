@@ -8,42 +8,21 @@ function BookList() {
   return (
     <section className="booklist">
       <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
     </section>
   );
 }
 
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/I/91NFL1efZNL._AC_UL320_.jpg"
-    alt="Rory McIlroy - The Champion Golfer"
-  />
-);
-
-const Title = () => {
-  return <h2>Rory McIlroy - The Champion Golfer</h2>;
-};
-
-const Author = () => {
-  //BEWARE OF INLINE STYLING OVERRIDING CSS FILES!
-  return (
-    <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
-      by Frank Worral
-    </h4>
-  );
-};
-
+const author = "Frank Worral";
 const Book = () => {
+  const title = "Rory McIlroy - The Champion Golfer";
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src="https://m.media-amazon.com/images/I/91NFL1efZNL._AC_UL320_.jpg"
+        alt="Rory McIlroy - The Champion Golfer"
+      />
+      <h2>{title}</h2>
+      <h4>by {author}</h4>
     </article>
   );
 };
