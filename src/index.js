@@ -55,7 +55,12 @@ const Book = (props) => {
   };
 
   return (
-    <article className="book">
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       <img src={img} alt="Rory McIlroy " />
       <h2 onClick={() => console.log(title)}>{title}</h2>
       <h4>by {author}</h4>
