@@ -7,16 +7,19 @@ import "./index.css";
 //Example as multiple Book Objects...
 const books = [
   {
+    id: 1,
     img: "https://m.media-amazon.com/images/I/91NFL1efZNL._AC_UL320_.jpg",
     title: "Rory McIlroy - The Champion Golfer",
     author: "Frank Worral",
   },
   {
+    id: 2,
     img: "https://m.media-amazon.com/images/I/41IA0aUwZnL._AC_UY218_.jpg",
     title: "Rory McIlroy - The Biography Updated",
     author: "Frank Worral",
   },
   {
+    id: 3,
     img:
       "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/5084/9781508439127.jpg",
     title:
@@ -29,7 +32,7 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book book={book} />;
+        return <Book key={book.id} book={book} />;
       })}
     </section>
   );
