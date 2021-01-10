@@ -4,10 +4,6 @@ import ReactDom from "react-dom";
 //CSS
 import "./index.css";
 
-// const author = "Frank Worral";
-// const title = "Rory McIlroy - The Champion Golfer";
-// const img = "https://m.media-amazon.com/images/I/91NFL1efZNL._AC_UL320_.jpg";
-
 //Example as multiple Book Objects...
 const books = [
   {
@@ -20,21 +16,28 @@ const books = [
     title: "Rory McIlroy - The Biography Updated",
     author: "Frank Worral",
   },
+  {
+    img:
+      "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/5084/9781508439127.jpg",
+    title:
+      "Rory McIlroy : The Inspirational Story of Golf Superstar Rory McIlroy",
+    author: "Bill Redban",
+  },
 ];
 
-const names = ["john", "paul", "ringo", "george"];
-const newNames = names.map((x) => {
-  console.log(x);
-  return <h1>{x}</h1>;
-});
-
 function BookList() {
-  return <section className="booklist">{newNames}</section>;
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        return <Book book={book} />;
+      })}
+    </section>
+  );
 }
 
 const Book = (props) => {
   let { img, title, author } = props.book;
-  console.log(props);
+  console.log("props is:", props);
   return (
     <article className="book">
       <img src={img} alt="Rory McIlroy " />
