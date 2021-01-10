@@ -41,14 +41,32 @@ function BookList() {
 
 const Book = (props) => {
   //When we use spread, the whole props object now is just as array containing the values of the Book.
-  //So no need to say props.book, we can just destructure the individual properties from props
+  //So no need to say props.book, we can just destructure the individual properties from propr
   let { img, title, author } = props;
-  console.log("props is:", props);
+
+  const clickHandler = () => {
+    alert("Hurray!");
+  };
+
+  //When an argument is required for the method, you can't actually write it normally as a click handler, as doing that invokes the function.
+  //So see below, when the complex example is required (params needed in function), we have to wrap it in another function (arrow function below)
+  const complexExample = (author) => {
+    console.log(author);
+  };
+
   return (
     <article className="book">
       <img src={img} alt="Rory McIlroy " />
-      <h2>{title}</h2>
+      <h2 onClick={() => console.log(title)}>{title}</h2>
       <h4>by {author}</h4>
+      <button type="button" onClick={clickHandler}>
+        Click Me!
+      </button>
+      {/* Function commented out below would fire each time the component is rendered. Must be wrapped to avoid auto execution.
+      <button type="button" onClick={complexExample(author)}> */}
+      <button type="button" onClick={() => complexExample(author)}>
+        More Complex
+      </button>
     </article>
   );
 };
