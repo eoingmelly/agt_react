@@ -32,14 +32,17 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book key={book.id} book={book} />;
+        //Spread operator being used instead. No need to declare it as book = {book}
+        return <Book key={book.id} {...book} />;
       })}
     </section>
   );
 }
 
 const Book = (props) => {
-  let { img, title, author } = props.book;
+  //When we use spread, the whole props object now is just as array containing the values of the Book.
+  //So no need to say props.book, we can just destructure the individual properties from props
+  let { img, title, author } = props;
   console.log("props is:", props);
   return (
     <article className="book">
